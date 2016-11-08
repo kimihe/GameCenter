@@ -1,5 +1,4 @@
-Kimi's Game Center(KMGame center)
+Kimi's Game Center(KMGameCenter)
 -------------------------------------
 
 Practice In Game Development.
-
