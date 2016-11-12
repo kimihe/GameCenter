@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB71C4C61DD735DD00C78998 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = BB71C4C51DD735DD00C78998 /* Zombie.m */; };
 		BBE973301DD70A560039FEBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE9732F1DD70A560039FEBC /* main.m */; };
 		BBE973331DD70A560039FEBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE973321DD70A560039FEBC /* AppDelegate.m */; };
 		BBE973361DD70A560039FEBC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE973351DD70A560039FEBC /* ViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB71C4C41DD735DD00C78998 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
+		BB71C4C51DD735DD00C78998 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
 		BBE9732B1DD70A560039FEBC /* AnimationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE9732F1DD70A560039FEBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBE973311DD70A560039FEBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				BBE973681DD712F30039FEBC /* MainView.m */,
 				BBE973611DD70B2E0039FEBC /* Sprite.h */,
 				BBE973621DD70B2E0039FEBC /* Sprite.m */,
+				BB71C4C41DD735DD00C78998 /* Zombie.h */,
+				BB71C4C51DD735DD00C78998 /* Zombie.m */,
 				BBE973341DD70A560039FEBC /* ViewController.h */,
 				BBE973351DD70A560039FEBC /* ViewController.m */,
 				BBE973371DD70A560039FEBC /* Main.storyboard */,
@@ -283,6 +288,7 @@
 				BBE973691DD712F30039FEBC /* MainView.m in Sources */,
 				BBE973361DD70A560039FEBC /* ViewController.m in Sources */,
 				BBE973331DD70A560039FEBC /* AppDelegate.m in Sources */,
+				BB71C4C61DD735DD00C78998 /* Zombie.m in Sources */,
 				BBE973631DD70B2E0039FEBC /* Sprite.m in Sources */,
 				BBE973301DD70A560039FEBC /* main.m in Sources */,
 			);
@@ -510,6 +516,7 @@
 				BBE9735A1DD70A560039FEBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE9735B1DD70A560039FEBC /* Build configuration list for PBXNativeTarget "AnimationTestTests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +525,7 @@
 				BBE9735D1DD70A560039FEBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BBE9735E1DD70A560039FEBC /* Build configuration list for PBXNativeTarget "AnimationTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +534,7 @@
 				BBE973601DD70A560039FEBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

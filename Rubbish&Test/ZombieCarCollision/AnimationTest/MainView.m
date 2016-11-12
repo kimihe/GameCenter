@@ -13,50 +13,56 @@ int H=480;
 
 @implementation MainView
 
-- (void) drawRect: (CGRect) rect
-{
+- (void) drawRect: (CGRect) rect {
     W = rect.size.width;
     H = rect.size.height;
     
-    if (!zombie) {
-        zombie = [[Sprite alloc] initWithPic: @"zombie_4f.png"
-                                    frameCnt: 4
-                                   frameStep: 5
-                                       speed: CGPointMake(0, -3)
-                                         pos: CGPointMake(W/2, H)];
-    }
-    
-    [zombie draw];
-    
-    //Invasion
     if (!sprites) {
         sprites = [[NSMutableArray alloc] initWithCapacity: 30];
         
-        for (int i=0; i<30; i++) {
+        for (int i=0; i<20; i++) {
             int fs = [self getRndBetween: 1 and: 10];
             int sy = [self getRndBetween: -3 and: -1];
             int px = [self getRndBetween: 0 and: W];
-            int py = [self getRndBetween: H+100 and: H+200];
-            Sprite *sprite = [[Sprite alloc] initWithPic: @"zombie_4f.png"
+            int py = [self getRndBetween: H and: H+100];
+            Zombie *zombie = [[Zombie alloc] initWithPic: @"zombie_4f.png"
                                                 frameCnt: 4
                                                frameStep: fs
                                                    speed: CGPointMake(0, sy)
                                                      pos: CGPointMake(px, py)];
-            [sprites addObject: sprite];
+            [zombie setType: ZOMBIE];
+            [sprites addObject: zombie];
+        }
+        
+        for (int i=0; i<10; i++) {
+            NSString *pic     = @"car_blue.png";
+            if (i<3) pic      = @"car_green.png";
+            else if (i<6) pic = @"car_red.png";
+            int sy    = [self getRndBetween: 1 and: 3];
+            int px    = [self getRndBetween: 0 and: W];
+            int py    = [self getRndBetween: -100 and: 0];
+            Sprite *car = [[Sprite alloc] initWithPic: pic
+                                             frameCnt: 1
+                                            frameStep: 0
+                                                speed: CGPointMake(0, sy)
+                                                  pos: CGPointMake(px, py)];
+            [car setType: CAR];
+            [sprites addObject: car];
         }
     }
     
-    for (Sprite *sprite in sprites){
+    for (Sprite *sprite in sprites) {
+        if ([sprite getType] == ZOMBIE) {
+            [(Zombie *) sprite hitTest: sprites];
+        }
         [sprite draw];
     }
-
 }
 
 - (void)clearView
 {
     [sprites removeAllObjects];
     sprites = nil;
-    zombie = nil;
     
     CGContextRef ctx = UIGraphicsGetCurrentContext();
 //    CGContextClearRect(ctx, self.bounds);

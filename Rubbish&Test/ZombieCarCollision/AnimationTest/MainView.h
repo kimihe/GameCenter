@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Sprite.h"
+#import "Zombie.h"
 
 extern int W;
 extern int H;
 
 @interface MainView : UIView {
-    Sprite *zombie;
     NSMutableArray *sprites;
 }
 

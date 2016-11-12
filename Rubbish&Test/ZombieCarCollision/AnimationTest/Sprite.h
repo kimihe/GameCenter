@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+enum types {
+    CAR,
+    ZOMBIE
+};
+
 @interface Sprite : NSObject {
     UIImage *pic;
     CGPoint speed;
@@ -17,6 +22,9 @@
     int frameNr;
     int frameCnt;
     int frameStep;
+    int frameW;
+    int frameH;
+    int type;
 }
 
 -(id) initWithPic: (NSString *) picName
@@ -27,5 +35,9 @@
 - (void) draw;
 - (void) drawFrame;
 - (int) updateFrame;
+- (CGRect) getRect;
+- (bool) checkColWithSprite: (Sprite *) sprite;
+- (void) setType: (int) spriteType;
+- (int) getType;
 
 @end
