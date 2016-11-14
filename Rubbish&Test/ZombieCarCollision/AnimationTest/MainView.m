@@ -17,6 +17,35 @@ int H=480;
     W = rect.size.width;
     H = rect.size.height;
     
+//    if (!sprites) {
+//        sprites = [[NSMutableArray alloc] initWithCapacity: 2];
+//        
+//        Zombie *zombie = [[Zombie alloc] initWithPic: @"zombie_4f.png"
+//                                            frameCnt: 4
+//                                           frameStep: 5
+//                                               speed: CGPointMake(0, -3)
+//                                                 pos: CGPointMake(W/2, H)];
+//        [zombie setType: ZOMBIE];
+//        [sprites addObject: zombie];
+//        
+//        Sprite *car = [[Sprite alloc] initWithPic: @"car_red.png"
+//                                         frameCnt: 1
+//                                        frameStep: 0
+//                                            speed: CGPointMake(0, 5)
+//                                              pos: CGPointMake(W/2, 0)];
+//        [car setType: CAR];
+//        [sprites addObject: car];
+//    }
+//    
+//    for (Sprite *sprite in sprites) {
+//        if ([sprite getType] == ZOMBIE) {
+//            [(Zombie *) sprite hitTest: sprites];
+//        }
+//        [sprite draw];
+//    }
+//    
+//    return;
+    
     if (!sprites) {
         sprites = [[NSMutableArray alloc] initWithCapacity: 30];
         

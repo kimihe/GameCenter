@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB71C4C61DD735DD00C78998 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = BB71C4C51DD735DD00C78998 /* Zombie.m */; };
+		BB9616CE1DD9C953001CDDEE /* KMMathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9616CD1DD9C953001CDDEE /* KMMathHelper.m */; };
 		BBE973301DD70A560039FEBC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE9732F1DD70A560039FEBC /* main.m */; };
 		BBE973331DD70A560039FEBC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE973321DD70A560039FEBC /* AppDelegate.m */; };
 		BBE973361DD70A560039FEBC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE973351DD70A560039FEBC /* ViewController.m */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		BB71C4C41DD735DD00C78998 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
 		BB71C4C51DD735DD00C78998 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		BB9616CC1DD9C953001CDDEE /* KMMathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMMathHelper.h; sourceTree = "<group>"; };
+		BB9616CD1DD9C953001CDDEE /* KMMathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMMathHelper.m; sourceTree = "<group>"; };
 		BBE9732B1DD70A560039FEBC /* AnimationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE9732F1DD70A560039FEBC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBE973311DD70A560039FEBC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 		BBE9732D1DD70A560039FEBC /* AnimationTest */ = {
 			isa = PBXGroup;
 			children = (
+				BB9616CC1DD9C953001CDDEE /* KMMathHelper.h */,
+				BB9616CD1DD9C953001CDDEE /* KMMathHelper.m */,
 				BBE973311DD70A560039FEBC /* AppDelegate.h */,
 				BBE973321DD70A560039FEBC /* AppDelegate.m */,
 				BBE973671DD712F30039FEBC /* MainView.h */,
@@ -285,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9616CE1DD9C953001CDDEE /* KMMathHelper.m in Sources */,
 				BBE973691DD712F30039FEBC /* MainView.m in Sources */,
 				BBE973361DD70A560039FEBC /* ViewController.m in Sources */,
 				BBE973331DD70A560039FEBC /* AppDelegate.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "Zombie.h"
+#import "KMMathHelper.h"
 
 @implementation Zombie
 
@@ -28,7 +29,12 @@
 - (void) hitTest: (NSMutableArray *) sprites {
     for (Sprite *sprite in sprites) {
         if ([sprite getType] == CAR) {
-            if ([self checkColWithSprite: sprite]){
+            
+            CGRect rect1 = [self getRect];
+            CGRect rect2 = [sprite getRect];
+            
+            // use my checkMehtod, it's better!
+            if ([KMMathHelper checkRect1:rect1 overlayWithRect2:rect2]){
                 [argghPic drawAtPoint: CGPointMake(pos.x, pos.y - argghPic.size.height)];
             }
         }
