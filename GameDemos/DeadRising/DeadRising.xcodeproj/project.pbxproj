@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB2E3FF31DDDDF9F00E8DCB4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E3FF21DDDDF9F00E8DCB4 /* main.m */; };
+		BB2E3FF61DDDDF9F00E8DCB4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E3FF51DDDDF9F00E8DCB4 /* AppDelegate.m */; };
+		BB2E3FF91DDDDF9F00E8DCB4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E3FF81DDDDF9F00E8DCB4 /* ViewController.m */; };
+		BB2E3FFC1DDDDF9F00E8DCB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB2E3FFA1DDDDF9F00E8DCB4 /* Main.storyboard */; };
+		BB2E3FFE1DDDDF9F00E8DCB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB2E3FFD1DDDDF9F00E8DCB4 /* Assets.xcassets */; };
+		BB2E40011DDDDF9F00E8DCB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB2E3FFF1DDDDF9F00E8DCB4 /* LaunchScreen.storyboard */; };
+		BB2E400C1DDDDF9F00E8DCB4 /* DeadRisingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E400B1DDDDF9F00E8DCB4 /* DeadRisingTests.m */; };
+		BB2E40171DDDDF9F00E8DCB4 /* DeadRisingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E40161DDDDF9F00E8DCB4 /* DeadRisingUITests.m */; };
+		BB2E40311DDDDFEE00E8DCB4 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E40261DDDDFEE00E8DCB4 /* Animation.m */; };
+		BB2E40321DDDDFEE00E8DCB4 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E40281DDDDFEE00E8DCB4 /* Car.m */; };
+		BB2E40331DDDDFEE00E8DCB4 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E402A1DDDDFEE00E8DCB4 /* Player.m */; };
+		BB2E40341DDDDFEE00E8DCB4 /* Reanimator.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E402C1DDDDFEE00E8DCB4 /* Reanimator.m */; };
+		BB2E40351DDDDFEE00E8DCB4 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E402E1DDDDFEE00E8DCB4 /* Sprite.m */; };
+		BB2E40361DDDDFEE00E8DCB4 /* Zombie.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E40301DDDDFEE00E8DCB4 /* Zombie.m */; };
+		BB2E403B1DDDE01900E8DCB4 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E40381DDDE01900E8DCB4 /* GameManager.m */; };
+		BB2E403C1DDDE01900E8DCB4 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2E403A1DDDE01900E8DCB4 /* MainView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB2E40081DDDDF9F00E8DCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB2E3FE61DDDDF9F00E8DCB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB2E3FED1DDDDF9F00E8DCB4;
+			remoteInfo = DeadRising;
+		};
+		BB2E40131DDDDF9F00E8DCB4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB2E3FE61DDDDF9F00E8DCB4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB2E3FED1DDDDF9F00E8DCB4;
+			remoteInfo = DeadRising;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB2E3FEE1DDDDF9F00E8DCB4 /* DeadRising.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeadRising.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2E3FF21DDDDF9F00E8DCB4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB2E3FF41DDDDF9F00E8DCB4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB2E3FF51DDDDF9F00E8DCB4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB2E3FF71DDDDF9F00E8DCB4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BB2E3FF81DDDDF9F00E8DCB4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB2E3FFB1DDDDF9F00E8DCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB2E3FFD1DDDDF9F00E8DCB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB2E40001DDDDF9F00E8DCB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB2E40021DDDDF9F00E8DCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2E40071DDDDF9F00E8DCB4 /* DeadRisingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeadRisingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2E400B1DDDDF9F00E8DCB4 /* DeadRisingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeadRisingTests.m; sourceTree = "<group>"; };
+		BB2E400D1DDDDF9F00E8DCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2E40121DDDDF9F00E8DCB4 /* DeadRisingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeadRisingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB2E40161DDDDF9F00E8DCB4 /* DeadRisingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeadRisingUITests.m; sourceTree = "<group>"; };
+		BB2E40181DDDDF9F00E8DCB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB2E40251DDDDFEE00E8DCB4 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		BB2E40261DDDDFEE00E8DCB4 /* Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animation.m; sourceTree = "<group>"; };
+		BB2E40271DDDDFEE00E8DCB4 /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Car.h; sourceTree = "<group>"; };
+		BB2E40281DDDDFEE00E8DCB4 /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Car.m; sourceTree = "<group>"; };
+		BB2E40291DDDDFEE00E8DCB4 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		BB2E402A1DDDDFEE00E8DCB4 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		BB2E402B1DDDDFEE00E8DCB4 /* Reanimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reanimator.h; sourceTree = "<group>"; };
+		BB2E402C1DDDDFEE00E8DCB4 /* Reanimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reanimator.m; sourceTree = "<group>"; };
+		BB2E402D1DDDDFEE00E8DCB4 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		BB2E402E1DDDDFEE00E8DCB4 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		BB2E402F1DDDDFEE00E8DCB4 /* Zombie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zombie.h; sourceTree = "<group>"; };
+		BB2E40301DDDDFEE00E8DCB4 /* Zombie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Zombie.m; sourceTree = "<group>"; };
+		BB2E40371DDDE01900E8DCB4 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		BB2E40381DDDE01900E8DCB4 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		BB2E40391DDDE01900E8DCB4 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
+		BB2E403A1DDDE01900E8DCB4 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB2E3FEB1DDDDF9F00E8DCB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E40041DDDDF9F00E8DCB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E400F1DDDDF9F00E8DCB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB2E3FE51DDDDF9F00E8DCB4 = {
+			isa = PBXGroup;
+			children = (
+				BB2E3FF01DDDDF9F00E8DCB4 /* DeadRising */,
+				BB2E400A1DDDDF9F00E8DCB4 /* DeadRisingTests */,
+				BB2E40151DDDDF9F00E8DCB4 /* DeadRisingUITests */,
+				BB2E3FEF1DDDDF9F00E8DCB4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB2E3FEF1DDDDF9F00E8DCB4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E3FEE1DDDDF9F00E8DCB4 /* DeadRising.app */,
+				BB2E40071DDDDF9F00E8DCB4 /* DeadRisingTests.xctest */,
+				BB2E40121DDDDF9F00E8DCB4 /* DeadRisingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB2E3FF01DDDDF9F00E8DCB4 /* DeadRising */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E40241DDDDFC300E8DCB4 /* GameElements */,
+				BB2E3FF41DDDDF9F00E8DCB4 /* AppDelegate.h */,
+				BB2E3FF51DDDDF9F00E8DCB4 /* AppDelegate.m */,
+				BB2E3FF71DDDDF9F00E8DCB4 /* ViewController.h */,
+				BB2E3FF81DDDDF9F00E8DCB4 /* ViewController.m */,
+				BB2E40391DDDE01900E8DCB4 /* MainView.h */,
+				BB2E403A1DDDE01900E8DCB4 /* MainView.m */,
+				BB2E40371DDDE01900E8DCB4 /* GameManager.h */,
+				BB2E40381DDDE01900E8DCB4 /* GameManager.m */,
+				BB2E3FFA1DDDDF9F00E8DCB4 /* Main.storyboard */,
+				BB2E3FFD1DDDDF9F00E8DCB4 /* Assets.xcassets */,
+				BB2E3FFF1DDDDF9F00E8DCB4 /* LaunchScreen.storyboard */,
+				BB2E40021DDDDF9F00E8DCB4 /* Info.plist */,
+				BB2E3FF11DDDDF9F00E8DCB4 /* Supporting Files */,
+			);
+			path = DeadRising;
+			sourceTree = "<group>";
+		};
+		BB2E3FF11DDDDF9F00E8DCB4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E3FF21DDDDF9F00E8DCB4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB2E400A1DDDDF9F00E8DCB4 /* DeadRisingTests */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E400B1DDDDF9F00E8DCB4 /* DeadRisingTests.m */,
+				BB2E400D1DDDDF9F00E8DCB4 /* Info.plist */,
+			);
+			path = DeadRisingTests;
+			sourceTree = "<group>";
+		};
+		BB2E40151DDDDF9F00E8DCB4 /* DeadRisingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E40161DDDDF9F00E8DCB4 /* DeadRisingUITests.m */,
+				BB2E40181DDDDF9F00E8DCB4 /* Info.plist */,
+			);
+			path = DeadRisingUITests;
+			sourceTree = "<group>";
+		};
+		BB2E40241DDDDFC300E8DCB4 /* GameElements */ = {
+			isa = PBXGroup;
+			children = (
+				BB2E40251DDDDFEE00E8DCB4 /* Animation.h */,
+				BB2E40261DDDDFEE00E8DCB4 /* Animation.m */,
+				BB2E40271DDDDFEE00E8DCB4 /* Car.h */,
+				BB2E40281DDDDFEE00E8DCB4 /* Car.m */,
+				BB2E40291DDDDFEE00E8DCB4 /* Player.h */,
+				BB2E402A1DDDDFEE00E8DCB4 /* Player.m */,
+				BB2E402B1DDDDFEE00E8DCB4 /* Reanimator.h */,
+				BB2E402C1DDDDFEE00E8DCB4 /* Reanimator.m */,
+				BB2E402D1DDDDFEE00E8DCB4 /* Sprite.h */,
+				BB2E402E1DDDDFEE00E8DCB4 /* Sprite.m */,
+				BB2E402F1DDDDFEE00E8DCB4 /* Zombie.h */,
+				BB2E40301DDDDFEE00E8DCB4 /* Zombie.m */,
+			);
+			name = GameElements;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB2E3FED1DDDDF9F00E8DCB4 /* DeadRising */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2E401B1DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRising" */;
+			buildPhases = (
+				BB2E3FEA1DDDDF9F00E8DCB4 /* Sources */,
+				BB2E3FEB1DDDDF9F00E8DCB4 /* Frameworks */,
+				BB2E3FEC1DDDDF9F00E8DCB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeadRising;
+			productName = DeadRising;
+			productReference = BB2E3FEE1DDDDF9F00E8DCB4 /* DeadRising.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB2E40061DDDDF9F00E8DCB4 /* DeadRisingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2E401E1DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRisingTests" */;
+			buildPhases = (
+				BB2E40031DDDDF9F00E8DCB4 /* Sources */,
+				BB2E40041DDDDF9F00E8DCB4 /* Frameworks */,
+				BB2E40051DDDDF9F00E8DCB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB2E40091DDDDF9F00E8DCB4 /* PBXTargetDependency */,
+			);
+			name = DeadRisingTests;
+			productName = DeadRisingTests;
+			productReference = BB2E40071DDDDF9F00E8DCB4 /* DeadRisingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BB2E40111DDDDF9F00E8DCB4 /* DeadRisingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB2E40211DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRisingUITests" */;
+			buildPhases = (
+				BB2E400E1DDDDF9F00E8DCB4 /* Sources */,
+				BB2E400F1DDDDF9F00E8DCB4 /* Frameworks */,
+				BB2E40101DDDDF9F00E8DCB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BB2E40141DDDDF9F00E8DCB4 /* PBXTargetDependency */,
+			);
+			name = DeadRisingUITests;
+			productName = DeadRisingUITests;
+			productReference = BB2E40121DDDDF9F00E8DCB4 /* DeadRisingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB2E3FE61DDDDF9F00E8DCB4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "周祺华";
+				TargetAttributes = {
+					BB2E3FED1DDDDF9F00E8DCB4 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BB2E40061DDDDF9F00E8DCB4 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BB2E3FED1DDDDF9F00E8DCB4;
+					};
+					BB2E40111DDDDF9F00E8DCB4 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = BB2E3FED1DDDDF9F00E8DCB4;
+					};
+				};
+			};
+			buildConfigurationList = BB2E3FE91DDDDF9F00E8DCB4 /* Build configuration list for PBXProject "DeadRising" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB2E3FE51DDDDF9F00E8DCB4;
+			productRefGroup = BB2E3FEF1DDDDF9F00E8DCB4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB2E3FED1DDDDF9F00E8DCB4 /* DeadRising */,
+				BB2E40061DDDDF9F00E8DCB4 /* DeadRisingTests */,
+				BB2E40111DDDDF9F00E8DCB4 /* DeadRisingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB2E3FEC1DDDDF9F00E8DCB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2E40011DDDDF9F00E8DCB4 /* LaunchScreen.storyboard in Resources */,
+				BB2E3FFE1DDDDF9F00E8DCB4 /* Assets.xcassets in Resources */,
+				BB2E3FFC1DDDDF9F00E8DCB4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E40051DDDDF9F00E8DCB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E40101DDDDF9F00E8DCB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB2E3FEA1DDDDF9F00E8DCB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2E40361DDDDFEE00E8DCB4 /* Zombie.m in Sources */,
+				BB2E40341DDDDFEE00E8DCB4 /* Reanimator.m in Sources */,
+				BB2E40321DDDDFEE00E8DCB4 /* Car.m in Sources */,
+				BB2E403C1DDDE01900E8DCB4 /* MainView.m in Sources */,
+				BB2E40351DDDDFEE00E8DCB4 /* Sprite.m in Sources */,
+				BB2E3FF91DDDDF9F00E8DCB4 /* ViewController.m in Sources */,
+				BB2E3FF61DDDDF9F00E8DCB4 /* AppDelegate.m in Sources */,
+				BB2E40311DDDDFEE00E8DCB4 /* Animation.m in Sources */,
+				BB2E403B1DDDE01900E8DCB4 /* GameManager.m in Sources */,
+				BB2E40331DDDDFEE00E8DCB4 /* Player.m in Sources */,
+				BB2E3FF31DDDDF9F00E8DCB4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E40031DDDDF9F00E8DCB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2E400C1DDDDF9F00E8DCB4 /* DeadRisingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB2E400E1DDDDF9F00E8DCB4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB2E40171DDDDF9F00E8DCB4 /* DeadRisingUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BB2E40091DDDDF9F00E8DCB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB2E3FED1DDDDF9F00E8DCB4 /* DeadRising */;
+			targetProxy = BB2E40081DDDDF9F00E8DCB4 /* PBXContainerItemProxy */;
+		};
+		BB2E40141DDDDF9F00E8DCB4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB2E3FED1DDDDF9F00E8DCB4 /* DeadRising */;
+			targetProxy = BB2E40131DDDDF9F00E8DCB4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB2E3FFA1DDDDF9F00E8DCB4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB2E3FFB1DDDDF9F00E8DCB4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB2E3FFF1DDDDF9F00E8DCB4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB2E40001DDDDF9F00E8DCB4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB2E40191DDDDF9F00E8DCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB2E401A1DDDDF9F00E8DCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB2E401C1DDDDF9F00E8DCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DeadRising/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRising;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB2E401D1DDDDF9F00E8DCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = DeadRising/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRising;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BB2E401F1DDDDF9F00E8DCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeadRisingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRisingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeadRising.app/DeadRising";
+			};
+			name = Debug;
+		};
+		BB2E40201DDDDF9F00E8DCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DeadRisingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRisingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeadRising.app/DeadRising";
+			};
+			name = Release;
+		};
+		BB2E40221DDDDF9F00E8DCB4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DeadRisingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRisingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DeadRising;
+			};
+			name = Debug;
+		};
+		BB2E40231DDDDF9F00E8DCB4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DeadRisingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.DeadRisingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DeadRising;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB2E3FE91DDDDF9F00E8DCB4 /* Build configuration list for PBXProject "DeadRising" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2E40191DDDDF9F00E8DCB4 /* Debug */,
+				BB2E401A1DDDDF9F00E8DCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB2E401B1DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRising" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2E401C1DDDDF9F00E8DCB4 /* Debug */,
+				BB2E401D1DDDDF9F00E8DCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB2E401E1DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRisingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2E401F1DDDDF9F00E8DCB4 /* Debug */,
+				BB2E40201DDDDF9F00E8DCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB2E40211DDDDF9F00E8DCB4 /* Build configuration list for PBXNativeTarget "DeadRisingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2E40221DDDDF9F00E8DCB4 /* Debug */,
+				BB2E40231DDDDF9F00E8DCB4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB2E3FE61DDDDF9F00E8DCB4 /* Project object */;
+}

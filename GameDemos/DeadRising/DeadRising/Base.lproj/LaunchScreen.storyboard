@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TheWalkingDead" translatesAutoresizingMaskIntoConstraints="NO" id="wbE-KS-jpW">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wbE-KS-jpW" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="HR8-PZ-b4f"/>
+                            <constraint firstItem="wbE-KS-jpW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IOG-CZ-zEI"/>
+                            <constraint firstItem="wbE-KS-jpW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SaO-zF-NdR"/>
+                            <constraint firstItem="wbE-KS-jpW" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="esi-VA-aqp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="wbE-KS-jpW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="HR8-PZ-b4f"/>
+                                <exclude reference="IOG-CZ-zEI"/>
+                                <exclude reference="SaO-zF-NdR"/>
+                                <exclude reference="esi-VA-aqp"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="wbE-KS-jpW"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HR8-PZ-b4f"/>
+                                <include reference="IOG-CZ-zEI"/>
+                                <include reference="SaO-zF-NdR"/>
+                                <include reference="esi-VA-aqp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TheWalkingDead" width="2025" height="3000"/>
+    </resources>
+</document>
