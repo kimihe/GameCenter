@@ -69,7 +69,7 @@
     CGFloat y = _gameView.bounds.origin.y;
     
     UIView *dropView = [[UIView alloc] initWithFrame:CGRectMake(x, y, DROP_SIZE.width, DROP_SIZE.width)];
-    dropView.backgroundColor = [UIColor randomFiveColor];
+    dropView.backgroundColor = [UIColor randomThreeColor];
     [_gameView addSubview:dropView];
     [_cubeBehavior addItem:dropView];
 
