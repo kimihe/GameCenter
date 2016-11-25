@@ -17,6 +17,8 @@
     KMCubeBehavior *_cubeBehavior;
     KMGameView *_gameView;
     KMAnimatorManager *_animator;
+    
+    CGPoint _touchBeganPoint;
 }
 
 @end
@@ -27,8 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self initView];
     [self initData];
-    [self addTapGesture];
+//    [self addTapGesture];
+    [self addSwipeGesture];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,33 +41,155 @@
 }
 
 #pragma mark - Init sth
-- (void)initData
+- (void)initView
 {
     _gameView = [[KMGameView alloc] initWithFrame:self.view.frame];
     [self.view addSubview:_gameView];
     
+    UIButton *dropBtn = [[UIButton alloc] initWithFrame:CGRectMake(150, 30, 50, 30)];
+    [dropBtn setTitle:@"drop" forState:UIControlStateNormal];
+    [dropBtn addTarget:self action:@selector(tapAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_gameView addSubview:dropBtn];
+}
+
+- (void)initData
+{
     _animator = [[KMAnimatorManager alloc] initWithReferenceView:_gameView];
     _animator.delegate = self;
     
     _cubeBehavior = [[KMCubeBehavior alloc] init];
-    [_animator addBehavior:_cubeBehavior];
+    [_animator addBehavior:_cubeBehavior];    
 }
 
-- (void)addTapGesture
-{
-    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    [_gameView addGestureRecognizer:tapGR];
-}
+//- (void)addTapGesture
+//{
+//    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+//    [_gameView addGestureRecognizer:tapGR];
+//}
 
-- (void)tapAction:(UITapGestureRecognizer *)sender
+- (void)tapAction:(id)sender
 {
     [self dropCudes];
+}
+
+- (void)addSwipeGesture
+{
+    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(reportSwipe:)];
+    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
+    [_gameView addGestureRecognizer:rightSwipe];
+    
+    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(reportSwipe:)];
+    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_gameView addGestureRecognizer:leftSwipe];
+    
+    UISwipeGestureRecognizer *upSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(reportSwipe:)];
+    upSwipe.direction = UISwipeGestureRecognizerDirectionUp;
+    [_gameView addGestureRecognizer:upSwipe];
+    
+    UISwipeGestureRecognizer *downSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(reportSwipe:)];
+    downSwipe.direction = UISwipeGestureRecognizerDirectionDown;
+    [_gameView addGestureRecognizer:downSwipe];
+}
+
+- (void)reportSwipe:(UISwipeGestureRecognizer *)recognizer
+{
+    // 检测_touchBeganPoint所在的view
+    UIView *hitView = [_gameView hitTest:_touchBeganPoint withEvent:NULL];
+    
+    // 如果返回的view的父视图是_gameView,就说明它是方块
+    if ([[hitView superview] isEqual:_gameView]) {
+        
+        CGFloat x = hitView.center.x;
+        CGFloat y = hitView.center.y;
+        CGFloat squreWidth = DROP_SIZE.width;
+        
+        switch (recognizer.direction) {
+            case UISwipeGestureRecognizerDirectionRight: {
+                NSLog(@"right swipe detected");
+                
+                UIView *rightView = [_gameView hitTest:CGPointMake(x+squreWidth, y) withEvent:NULL];
+                if ([[rightView superview] isEqual:_gameView]) {
+                    
+                    UIColor *tmp = hitView.backgroundColor;
+                    hitView.backgroundColor = rightView.backgroundColor;
+                    rightView.backgroundColor = tmp;
+                    ;
+                    NSLog(@"this->right: two cubes' color did change!");
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self removeThreeSameColor];
+                    });
+                }
+                break;
+            }
+            case UISwipeGestureRecognizerDirectionLeft: {
+                NSLog(@"left swipe detected");
+                
+                UIView *leftView = [_gameView hitTest:CGPointMake(x-squreWidth, y) withEvent:NULL];
+                if ([[leftView superview] isEqual:_gameView]) {
+                    
+                    UIColor *tmp = hitView.backgroundColor;
+                    hitView.backgroundColor = leftView.backgroundColor;
+                    leftView.backgroundColor = tmp;
+                    ;
+                    NSLog(@"this->left: two cubes' color did change!");
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self removeThreeSameColor];
+                    });
+                }
+                
+                break;
+            }
+            case UISwipeGestureRecognizerDirectionUp: {
+                NSLog(@"up swipe detected");
+                
+                UIView *upView = [_gameView hitTest:CGPointMake(x, y-squreWidth) withEvent:NULL];
+                if ([[upView superview] isEqual:_gameView]) {
+                    
+                    UIColor *tmp = hitView.backgroundColor;
+                    hitView.backgroundColor = upView.backgroundColor;
+                    upView.backgroundColor = tmp;
+                    ;
+                    NSLog(@"this->up: two cubes' color did change!");
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self removeThreeSameColor];
+                    });
+                }
+
+                break;
+            }
+            case UISwipeGestureRecognizerDirectionDown: {
+                NSLog(@"down swipe detected");
+                
+                UIView *downView = [_gameView hitTest:CGPointMake(x, y+squreWidth) withEvent:NULL];
+                if ([[downView superview] isEqual:_gameView]) {
+                    
+                    UIColor *tmp = hitView.backgroundColor;
+                    hitView.backgroundColor = downView.backgroundColor;
+                    downView.backgroundColor = tmp;
+                    ;
+                    NSLog(@"this->down: two cubes' color did change!");
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self removeThreeSameColor];
+                    });
+                }
+
+                break;
+            }
+                
+            default:
+                break;
+        }
+    }
 }
 
 #pragma mark - Cubes Dropping
 - (void)dropCudes
 {
-    NSLog(@"here!");
+    NSLog(@"A new cube is dropping!");
     
     CGFloat x = arc4random()%dropsPerRow * DROP_SIZE.width;
     CGFloat y = _gameView.bounds.origin.y;
@@ -133,7 +259,7 @@
 - (NSArray *)checkHorizontalAt:(UIView *)aView
 {
     UIView *centerView = aView;
-    UIColor *centerColor = aView.backgroundColor;
+    UIColor *centerColor = centerView.backgroundColor;
     CGFloat x = centerView.center.x;
     CGFloat y = centerView.center.y;
     CGFloat squreWidth = DROP_SIZE.width;
@@ -164,7 +290,7 @@
 {
     UIView *centerView = aView;
 
-    UIColor *centerColor = aView.backgroundColor;
+    UIColor *centerColor = centerView.backgroundColor;
     CGFloat x = centerView.center.x;
     CGFloat y = centerView.center.y;
     CGFloat squreWidth = DROP_SIZE.width;
@@ -197,7 +323,7 @@
 {
     UIView *centerView = aView;
     
-    UIColor *centerColor = aView.backgroundColor;
+    UIColor *centerColor = centerView.backgroundColor;
     CGFloat x = centerView.center.x;
     CGFloat y = centerView.center.y;
     CGFloat squreWidth = DROP_SIZE.width;
@@ -272,6 +398,13 @@
 - (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator
 {
     [self removeThreeSameColor];
+}
+
+#pragma mark - Touch Handling
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    _touchBeganPoint = [touch locationInView:_gameView];
 }
 
 
