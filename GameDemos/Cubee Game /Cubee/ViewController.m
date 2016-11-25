@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "KMGameView.h"
+#import "KMDropView.h"
 #import "KMAnimatorManager.h"
 #import "KMCubeBehavior.h"
 #import "UIColor+KMColorHelper.h"
@@ -194,8 +195,10 @@
     CGFloat x = arc4random()%dropsPerRow * DROP_SIZE.width;
     CGFloat y = _gameView.bounds.origin.y;
     
-    UIView *dropView = [[UIView alloc] initWithFrame:CGRectMake(x, y, DROP_SIZE.width, DROP_SIZE.width)];
-    dropView.backgroundColor = [UIColor randomThreeColor];
+    KMDropView *dropView = [[KMDropView alloc] initWithFrame:CGRectMake(x, y, DROP_SIZE.width, DROP_SIZE.width)];
+    UIColor *color = [UIColor randomThreeColor];
+    dropView.strokeColor = [UIColor lightGrayColor];
+    dropView.backgroundColor = color;
     [_gameView addSubview:dropView];
     [_cubeBehavior addItem:dropView];
 

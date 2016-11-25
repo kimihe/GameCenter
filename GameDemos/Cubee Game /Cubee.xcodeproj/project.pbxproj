@@ -21,6 +21,7 @@
 		BB3635171DE6C7D800A6EA47 /* KMMathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3635141DE6C7D800A6EA47 /* KMMathHelper.m */; };
 		BB3635181DE6C7D800A6EA47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BB3635161DE6C7D800A6EA47 /* README.md */; };
 		BB36351B1DE6D61600A6EA47 /* UIColor+KMColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BB36351A1DE6D61600A6EA47 /* UIColor+KMColorHelper.m */; };
+		BB4AF8251DE8362200B06CC0 /* KMDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4AF8241DE8362200B06CC0 /* KMDropView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		BB3635161DE6C7D800A6EA47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BB3635191DE6D61500A6EA47 /* UIColor+KMColorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+KMColorHelper.h"; sourceTree = "<group>"; };
 		BB36351A1DE6D61600A6EA47 /* UIColor+KMColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KMColorHelper.m"; sourceTree = "<group>"; };
+		BB4AF8231DE8362200B06CC0 /* KMDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDropView.h; sourceTree = "<group>"; };
+		BB4AF8241DE8362200B06CC0 /* KMDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDropView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,14 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				BB3635121DE6C7D700A6EA47 /* ToolsKit */,
+				BB4AF8221DE835BB00B06CC0 /* PhysicalEngine */,
+				BB4AF8211DE8359700B06CC0 /* Views */,
 				BB3634D91DE6BE0D00A6EA47 /* AppDelegate.h */,
 				BB3634DA1DE6BE0D00A6EA47 /* AppDelegate.m */,
-				BB36350C1DE6C09400A6EA47 /* KMAnimatorManager.h */,
-				BB36350D1DE6C09400A6EA47 /* KMAnimatorManager.m */,
-				BB36350F1DE6C11F00A6EA47 /* KMCubeBehavior.h */,
-				BB3635101DE6C11F00A6EA47 /* KMCubeBehavior.m */,
-				BB3635091DE6BF7000A6EA47 /* KMGameView.h */,
-				BB36350A1DE6BF7000A6EA47 /* KMGameView.m */,
 				BB3634DC1DE6BE0D00A6EA47 /* ViewController.h */,
 				BB3634DD1DE6BE0D00A6EA47 /* ViewController.m */,
 				BB3634DF1DE6BE0D00A6EA47 /* Main.storyboard */,
@@ -177,6 +176,28 @@
 				BB36351A1DE6D61600A6EA47 /* UIColor+KMColorHelper.m */,
 			);
 			path = ToolsKit;
+			sourceTree = "<group>";
+		};
+		BB4AF8211DE8359700B06CC0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB3635091DE6BF7000A6EA47 /* KMGameView.h */,
+				BB36350A1DE6BF7000A6EA47 /* KMGameView.m */,
+				BB4AF8231DE8362200B06CC0 /* KMDropView.h */,
+				BB4AF8241DE8362200B06CC0 /* KMDropView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BB4AF8221DE835BB00B06CC0 /* PhysicalEngine */ = {
+			isa = PBXGroup;
+			children = (
+				BB36350C1DE6C09400A6EA47 /* KMAnimatorManager.h */,
+				BB36350D1DE6C09400A6EA47 /* KMAnimatorManager.m */,
+				BB36350F1DE6C11F00A6EA47 /* KMCubeBehavior.h */,
+				BB3635101DE6C11F00A6EA47 /* KMCubeBehavior.m */,
+			);
+			name = PhysicalEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +335,7 @@
 				BB3635111DE6C11F00A6EA47 /* KMCubeBehavior.m in Sources */,
 				BB36350B1DE6BF7000A6EA47 /* KMGameView.m in Sources */,
 				BB3634DE1DE6BE0D00A6EA47 /* ViewController.m in Sources */,
+				BB4AF8251DE8362200B06CC0 /* KMDropView.m in Sources */,
 				BB3634DB1DE6BE0D00A6EA47 /* AppDelegate.m in Sources */,
 				BB36350E1DE6C09400A6EA47 /* KMAnimatorManager.m in Sources */,
 				BB3635181DE6C7D800A6EA47 /* README.md in Sources */,
@@ -543,6 +565,7 @@
 				BB3635021DE6BE0D00A6EA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB3635031DE6BE0D00A6EA47 /* Build configuration list for PBXNativeTarget "CubeeTests" */ = {
 			isa = XCConfigurationList;
@@ -551,6 +574,7 @@
 				BB3635051DE6BE0D00A6EA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB3635061DE6BE0D00A6EA47 /* Build configuration list for PBXNativeTarget "CubeeUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +583,7 @@
 				BB3635081DE6BE0D00A6EA47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
