@@ -8,10 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol KMGameViewDelegate <NSObject>
+
+@optional
+
+- (void)gameViewWillKickAwayCubesWithCount:(NSInteger)count;
+- (void)gameViewDidKickAwayCubesWithCount:(NSInteger)count;
+
+@end
+
 @interface KMGameView : UIView
 
 extern NSInteger dropsPerRow;
 extern CGSize DROP_SIZE;
 
+@property (weak, nonatomic)id <KMGameViewDelegate>delegate;
+
 - (instancetype)initWithFrame:(CGRect)frame;
+- (void)randomlyDropCubes;
+
 @end
+

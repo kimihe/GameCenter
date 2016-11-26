@@ -181,10 +181,10 @@
 		BB4AF8211DE8359700B06CC0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BB3635091DE6BF7000A6EA47 /* KMGameView.h */,
-				BB36350A1DE6BF7000A6EA47 /* KMGameView.m */,
 				BB4AF8231DE8362200B06CC0 /* KMDropView.h */,
 				BB4AF8241DE8362200B06CC0 /* KMDropView.m */,
+				BB3635091DE6BF7000A6EA47 /* KMGameView.h */,
+				BB36350A1DE6BF7000A6EA47 /* KMGameView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
