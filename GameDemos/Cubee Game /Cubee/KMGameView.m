@@ -6,6 +6,8 @@
 //  Copyright © 2016年 周祺华. All rights reserved.
 //
 
+#define USE_DEBUG 0
+
 #import "KMGameView.h"
 #import "KMAnimatorManager.h"
 #import "KMCubeBehavior.h"
@@ -90,10 +92,10 @@ CGSize DROP_SIZE = {50, 50};
 - (void)reportSwipe:(UISwipeGestureRecognizer *)recognizer
 {
     // 检测_touchBeganPoint所在的view
-    UIView *hitView = [self hitTest:_touchBeganPoint withEvent:NULL];
+    KMDropView *hitView = [self hitCheckWithPoint:_touchBeganPoint];
     
     // 如果返回的view的父视图是_gameView,就说明它是方块
-    if ([[hitView superview] isEqual:self]) {
+    if (hitView) {
         
         CGFloat x = hitView.center.x;
         CGFloat y = hitView.center.y;
@@ -103,31 +105,40 @@ CGSize DROP_SIZE = {50, 50};
             case UISwipeGestureRecognizerDirectionRight: {
                 NSLog(@"right swipe detected");
                 
-                UIView *rightView = [self hitTest:CGPointMake(x+squreWidth, y) withEvent:NULL];
-                if ([[rightView superview] isEqual:self]) {
+                KMDropView *rightView = [self hitCheckWithPoint:CGPointMake(x+squreWidth, y)];
+                if (rightView) {
                     
-                    UIColor *tmp = hitView.backgroundColor;
-                    hitView.backgroundColor = rightView.backgroundColor;
-                    rightView.backgroundColor = tmp;
-                    ;
+                    NSString *tmpType = hitView.type;
+                    hitView.type = rightView.type;
+                    rightView.type = tmpType;
+    
+                    UIColor *tmpCoclor = hitView.insideSqureColor;
+                    hitView.insideSqureColor = rightView.insideSqureColor;
+                    rightView.insideSqureColor = tmpCoclor;
+                    
                     NSLog(@"this->right: two cubes' color did change!");
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [self removeThreeSameColor];
                     });
                 }
+                
                 break;
             }
             case UISwipeGestureRecognizerDirectionLeft: {
                 NSLog(@"left swipe detected");
                 
-                UIView *leftView = [self hitTest:CGPointMake(x-squreWidth, y) withEvent:NULL];
-                if ([[leftView superview] isEqual:self]) {
+                KMDropView *leftView = [self hitCheckWithPoint:CGPointMake(x-squreWidth, y)];
+                if (leftView) {
                     
-                    UIColor *tmp = hitView.backgroundColor;
-                    hitView.backgroundColor = leftView.backgroundColor;
-                    leftView.backgroundColor = tmp;
-                    ;
+                    NSString *tmpType = hitView.type;
+                    hitView.type = leftView.type;
+                    leftView.type = tmpType;
+                    
+                    UIColor *tmpCoclor = hitView.insideSqureColor;
+                    hitView.insideSqureColor = leftView.insideSqureColor;
+                    leftView.insideSqureColor = tmpCoclor;
+
                     NSLog(@"this->left: two cubes' color did change!");
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -140,13 +151,17 @@ CGSize DROP_SIZE = {50, 50};
             case UISwipeGestureRecognizerDirectionUp: {
                 NSLog(@"up swipe detected");
                 
-                UIView *upView = [self hitTest:CGPointMake(x, y-squreWidth) withEvent:NULL];
-                if ([[upView superview] isEqual:self]) {
+                KMDropView *upView = [self hitCheckWithPoint:CGPointMake(x, y-squreWidth)];
+                if (upView) {
                     
-                    UIColor *tmp = hitView.backgroundColor;
-                    hitView.backgroundColor = upView.backgroundColor;
-                    upView.backgroundColor = tmp;
-                    ;
+                    NSString *tmpType = hitView.type;
+                    hitView.type = upView.type;
+                    upView.type = tmpType;
+                    
+                    UIColor *tmpCoclor = hitView.insideSqureColor;
+                    hitView.insideSqureColor = upView.insideSqureColor;
+                    upView.insideSqureColor = tmpCoclor;
+                    
                     NSLog(@"this->up: two cubes' color did change!");
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -159,13 +174,17 @@ CGSize DROP_SIZE = {50, 50};
             case UISwipeGestureRecognizerDirectionDown: {
                 NSLog(@"down swipe detected");
                 
-                UIView *downView = [self hitTest:CGPointMake(x, y+squreWidth) withEvent:NULL];
-                if ([[downView superview] isEqual:self]) {
+                KMDropView *downView = [self hitCheckWithPoint:CGPointMake(x, y+squreWidth)];
+                if (downView) {
                     
-                    UIColor *tmp = hitView.backgroundColor;
-                    hitView.backgroundColor = downView.backgroundColor;
-                    downView.backgroundColor = tmp;
-                    ;
+                    NSString *tmpType = hitView.type;
+                    hitView.type = downView.type;
+                    downView.type = tmpType;
+                    
+                    UIColor *tmpCoclor = hitView.insideSqureColor;
+                    hitView.insideSqureColor = downView.insideSqureColor;
+                    downView.insideSqureColor = tmpCoclor;
+                    
                     NSLog(@"this->down: two cubes' color did change!");
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -185,18 +204,19 @@ CGSize DROP_SIZE = {50, 50};
 #pragma mark -  Drop Cubes
 - (void)randomlyDropCubes
 {
-    NSLog(@"A new cube is dropping!");
+//    NSLog(@"A new cube is dropping!");
     
     CGFloat x = arc4random()%dropsPerRow * DROP_SIZE.width;
     CGFloat y = self.bounds.origin.y;
     
     KMDropView *dropView = [[KMDropView alloc] initWithFrame:CGRectMake(x, y, DROP_SIZE.width, DROP_SIZE.width)];
     UIColor *color = [UIColor randomThreeColor];
-    dropView.strokeColor = [UIColor lightGrayColor];
-    dropView.backgroundColor = color;
+    dropView.borderColor = [UIColor lightGrayColor];
+    dropView.insideSqureColor = color;
+    dropView.type = color.description;
+    
     [self addSubview:dropView];
     [_cubeBehavior addItem:dropView];
-    
 }
 
 #pragma mark - Remove Cubes
@@ -242,8 +262,8 @@ CGSize DROP_SIZE = {50, 50};
     for (CGFloat y =self.bounds.size.height-DROP_SIZE.height/2; y >0; y -=DROP_SIZE.height) {
         for (CGFloat x = DROP_SIZE.width/2; x <self.bounds.size.width; x +=DROP_SIZE.width) {
             // 检测(x, y)这个点所在的view
-            UIView *hitView = [self hitTest:CGPointMake(x, y) withEvent:NULL];
-            if ([[hitView superview] isEqual:self]) {
+            KMDropView *hitView = [self hitCheckWithPoint:CGPointMake(x, y)];
+            if (hitView) {
                 
                 NSArray *arr = [self checkCrossAt:hitView];
                 if (arr) {
@@ -259,7 +279,38 @@ CGSize DROP_SIZE = {50, 50};
     }
 }
 
+- (void)kickAwayDrops:(NSArray *)drops
+{
+    if ([self.delegate respondsToSelector:@selector(gameViewWillKickAwayCubesWithCount:)]) {
+        [self.delegate gameViewWillKickAwayCubesWithCount:[drops count]];
+    }
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+        for (UIView *drop in drops) {
+            
+            //设定炸飞后终点的位置
+            int x = self.bounds.size.width+DROP_SIZE.width;
+            int y = - DROP_SIZE.height;
+            drop.center = CGPointMake(x, y);
+        }
+        
+    } completion:^(BOOL finished) {
+        [drops makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    }];
+    
+    
+    for (UIView *drop in drops) {
+        [_cubeBehavior removeItem:drop];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(gameViewDidKickAwayCubesWithCount:)]) {
+        [self.delegate gameViewDidKickAwayCubesWithCount:[drops count]];
+    }
+}
+
 #pragma mark - Support Methods
+#if USE_DEBUG
 - (NSArray *)checkHorizontalAt:(UIView *)aView
 {
     UIView *centerView = aView;
@@ -322,54 +373,53 @@ CGSize DROP_SIZE = {50, 50};
     
     return totalArr;
 }
+#endif
 
-- (NSArray *)checkCrossAt:(UIView *)aView
+- (NSArray *)checkCrossAt:(KMDropView *)centerView
 {
-    UIView *centerView = aView;
-    
-    UIColor *centerColor = centerView.backgroundColor;
+    NSString *centerColor = centerView.type;
     CGFloat x = centerView.center.x;
     CGFloat y = centerView.center.y;
     CGFloat squreWidth = DROP_SIZE.width;
     
     
-    UIView *leftView = [self hitTest:CGPointMake(x-squreWidth, y) withEvent:NULL];
-    UIView *rightView = [self hitTest:CGPointMake(x+squreWidth, y) withEvent:NULL];
-    UIView *upperView = [self hitTest:CGPointMake(x, y-squreWidth) withEvent:NULL];
-    UIView *lowerView = [self hitTest:CGPointMake(x, y+squreWidth) withEvent:NULL];
+    KMDropView *leftView = [self hitCheckWithPoint:CGPointMake(x-squreWidth, y)];
+    KMDropView *rightView = [self hitCheckWithPoint:CGPointMake(x+squreWidth, y)];
+    KMDropView *upperView = [self hitCheckWithPoint:CGPointMake(x, y-squreWidth)];
+    KMDropView *lowerView = [self hitCheckWithPoint:CGPointMake(x, y+squreWidth) ];
     
     
-    UIView *upperLeftView = [self hitTest:CGPointMake(x-squreWidth, y-squreWidth) withEvent:NULL];
-    UIView *lowerLeftView = [self hitTest:CGPointMake(x-squreWidth, y+squreWidth) withEvent:NULL];
-    UIView *upperRightView = [self hitTest:CGPointMake(x+squreWidth, y-squreWidth) withEvent:NULL];
-    UIView *lowerRightView = [self hitTest:CGPointMake(x+squreWidth, y+squreWidth) withEvent:NULL];
+    KMDropView *upperLeftView = [self hitCheckWithPoint:CGPointMake(x-squreWidth, y-squreWidth)];
+    KMDropView *lowerLeftView = [self hitCheckWithPoint:CGPointMake(x-squreWidth, y+squreWidth)];
+    KMDropView *upperRightView = [self hitCheckWithPoint:CGPointMake(x+squreWidth, y-squreWidth)];
+    KMDropView *lowerRightView = [self hitCheckWithPoint:CGPointMake(x+squreWidth, y+squreWidth)];
     
     
-    UIColor *leftColor = leftView.backgroundColor;
-    UIColor *rightColor = rightView.backgroundColor;
-    UIColor *upperColor = upperView.backgroundColor;
-    UIColor *lowerColor = lowerView.backgroundColor;
+    NSString *leftColor = (leftView)?leftView.type : @"#$%^&*";
+    NSString *rightColor = (rightView)?rightView.type : @"#$%^&*";
+    NSString *upperColor = (upperView)?upperView.type : @"#$%^&*";
+    NSString *lowerColor = (lowerView)?lowerView.type : @"#$%^&*";
     
-    UIColor *upperLeftColor = upperLeftView.backgroundColor;
-    UIColor *lowerLeftColor = lowerLeftView.backgroundColor;
-    UIColor *upperRightColor = upperRightView.backgroundColor;
-    UIColor *lowerRightColor = lowerRightView.backgroundColor;
+    NSString *upperLeftColor = (upperLeftView)?upperLeftView.type : @"#$%^&*";
+    NSString *lowerLeftColor = (lowerLeftView)?lowerLeftView.type : @"#$%^&*";
+    NSString *upperRightColor = (upperRightView)?upperRightView.type : @"#$%^&*";
+    NSString *lowerRightColor = (lowerRightView)?lowerRightView.type : @"#$%^&*";
     
     NSMutableArray *totalArr = [NSMutableArray new];
-    if ([centerColor isEqual:leftColor] && [centerColor isEqual:rightColor]) {
+    if ([centerColor isEqualToString:leftColor] && [centerColor isEqualToString:rightColor]) {
         NSArray *arr = [NSArray arrayWithObjects:leftView, centerView, rightView, nil];
         [totalArr addObjectsFromArray:arr];
     }
-    if ([centerColor isEqual:upperColor] && [centerColor isEqual:lowerColor]) {
+    if ([centerColor isEqualToString:upperColor] && [centerColor isEqualToString:lowerColor]) {
         NSArray *arr = [NSArray arrayWithObjects:upperView, centerView, lowerView, nil];
         [totalArr addObjectsFromArray:arr];
     }
     
-    if ([centerColor isEqual:upperLeftColor] && [centerColor isEqual:lowerRightColor]) {
+    if ([centerColor isEqualToString:upperLeftColor] && [centerColor isEqualToString:lowerRightColor]) {
         NSArray *arr = [NSArray arrayWithObjects:upperLeftView, centerView, lowerRightView, nil];
         [totalArr addObjectsFromArray:arr];
     }
-    if ([centerColor isEqual:upperRightColor] && [centerColor isEqual:lowerLeftColor]) {
+    if ([centerColor isEqualToString:upperRightColor] && [centerColor isEqualToString:lowerLeftColor]) {
         NSArray *arr = [NSArray arrayWithObjects:upperRightView, centerView, lowerLeftView, nil];
         [totalArr addObjectsFromArray:arr];
     }
@@ -377,34 +427,24 @@ CGSize DROP_SIZE = {50, 50};
     return totalArr;
 }
 
-- (void)kickAwayDrops:(NSArray *)drops
+- (KMDropView *)hitCheckWithPoint:(CGPoint)point
 {
-    if ([self.delegate respondsToSelector:@selector(gameViewWillKickAwayCubesWithCount:)]) {
-        [self.delegate gameViewWillKickAwayCubesWithCount:[drops count]];
+    UIView *hitView = [self hitTest:point withEvent:NULL];
+//    NSLog(@"hitView class: %@", [hitView class]);
+
+    if ([hitView isKindOfClass:[KMDropView class]]) {
+        return (KMDropView *)hitView;
     }
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        
-        for (UIView *drop in drops) {
-            
-            //设定炸飞后终点的位置
-            int x = self.bounds.size.width+DROP_SIZE.width;
-            int y = - DROP_SIZE.height;
-            drop.center = CGPointMake(x, y);
-        }
-        
-    } completion:^(BOOL finished) {
-        [drops makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    }];
-    
-    
-    for (UIView *drop in drops) {
-        [_cubeBehavior removeItem:drop];
+    else {
+        return nil;
     }
-    
-    if ([self.delegate respondsToSelector:@selector(gameViewDidKickAwayCubesWithCount:)]) {
-        [self.delegate gameViewDidKickAwayCubesWithCount:[drops count]];
-    }    
+}
+
+- (void)exchangeObj1:(id)obj1 withObj2:(id)obj2
+{
+//    id tmp = obj1;
+//    obj1 = obj2;
+//    obj2 = tmp;
 }
 
 #pragma mark - <UIDynamicAnimatorDelegate>

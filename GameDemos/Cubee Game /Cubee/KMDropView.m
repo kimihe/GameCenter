@@ -33,7 +33,9 @@
 
 - (void)initData
 {
-    _strokeColor = [UIColor blackColor];
+    _borderColor = [UIColor blackColor];
+    _insideSqureColor = [UIColor whiteColor];
+    _type = @"#$%^&*";
 }
 
 - (void)setupBoundsAndFrame
@@ -48,9 +50,13 @@
     _selfFrameSquareWidth = (_selfFrameWidth<=_selfFrameHeight)? _selfFrameWidth : _selfFrameHeight;
 }
 
-#pragma mark - Draw BezierPath
-- (void)drawBezierPath
+
+
+#pragma mark - Property Set Methods
+- (void)setBorderColor:(UIColor *)borderColor
 {
+    _borderColor = borderColor;
+    
     //create a path
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     [bezierPath moveToPoint:CGPointMake(_selfBoundsX, _selfBoundsY)];
@@ -58,23 +64,53 @@
     [bezierPath addLineToPoint:CGPointMake(_selfBoundsX+_selfFrameSquareWidth, _selfBoundsY+_selfFrameSquareWidth)];
     [bezierPath addLineToPoint:CGPointMake(_selfBoundsX, _selfBoundsY+_selfFrameSquareWidth)];
     [bezierPath addLineToPoint:CGPointMake(_selfBoundsX, _selfBoundsY)];
-
+    
     
     //draw the path using a CAShapeLayer
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezierPath.CGPath;
     shapeLayer.fillColor = [UIColor clearColor].CGColor;
-    shapeLayer.strokeColor = _strokeColor.CGColor;
-    shapeLayer.lineWidth = 3.0f;
+    shapeLayer.strokeColor = _borderColor.CGColor;
+    shapeLayer.lineWidth = 1.0f;
     
     [self.layer addSublayer:shapeLayer];
 }
 
-- (void)setStrokeColor:(UIColor *)strokeColor
+- (void)setInsideSqureColor:(UIColor *)insideSqureColor
 {
-    _strokeColor = strokeColor;
+    _insideSqureColor = insideSqureColor;
     
-    [self drawBezierPath];
+    CGFloat ratio = 0.8;
+    CGFloat margin = _selfFrameSquareWidth*(1-ratio)/2;
+    CGFloat insideSqureWidth = _selfFrameSquareWidth*ratio;
+    
+    //create a path
+    UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
+    [bezierPath moveToPoint:CGPointMake(_selfBoundsX+margin, _selfBoundsY+margin)];
+    [bezierPath addLineToPoint:CGPointMake(_selfBoundsX+margin+insideSqureWidth, _selfBoundsY+margin)];
+    [bezierPath addLineToPoint:CGPointMake(_selfBoundsX+margin+insideSqureWidth, _selfBoundsY+margin+insideSqureWidth)];
+    [bezierPath addLineToPoint:CGPointMake(_selfBoundsX+margin, _selfBoundsY+margin+insideSqureWidth)];
+    [bezierPath addLineToPoint:CGPointMake(_selfBoundsX+margin, _selfBoundsY+margin)];
+    
+    
+    //draw the path using a CAShapeLayer
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.path = bezierPath.CGPath;
+    shapeLayer.fillColor = _insideSqureColor.CGColor;
+    shapeLayer.strokeColor = _insideSqureColor.CGColor;
+    shapeLayer.lineWidth = 1.0f;
+    
+    [self.layer addSublayer:shapeLayer];
+}
+
+- (void)setType:(NSString *)type
+{
+    _type = type;
+}
+
+- (void)setPattern:(UIImage *)pattern
+{
+    // add sth later
 }
 
 

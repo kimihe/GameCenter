@@ -36,6 +36,9 @@
 - (void)initView
 {
     _gameView = [[KMGameView alloc] initWithFrame:self.view.frame];
+    UIImage *background = [UIImage imageNamed:@"background"];
+    _gameView.contentMode = UIViewContentModeScaleAspectFill;
+    _gameView.layer.contents = (__bridge id _Nullable)(background.CGImage);
     _gameView.delegate = self;
     [self.view addSubview:_gameView];
     
@@ -47,7 +50,6 @@
     
     
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 20, 100, 30)];
-    _scoreLabel.textColor = [UIColor blackColor];
     [_gameView addSubview:_scoreLabel];
 }
 

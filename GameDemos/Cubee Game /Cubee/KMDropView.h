@@ -10,7 +10,17 @@
 
 @interface KMDropView : UIView
 
-@property(strong, nonatomic)UIColor *strokeColor;  //!< dropView边框的颜色
+@property(strong, nonatomic)UIColor *borderColor;       //!< dropView边框的颜色
+
+@property(strong, nonatomic)UIColor *insideSqureColor;  //!< 内部填充的颜色
+
+@property(strong, nonatomic)UIImage *pattern;           //!< 内部的图案
+
+
+/**
+ *  通过字符串标识不类型同的dropView，比如用户可以绘制石头，剪刀，布三种类型的dropView
+ */
+@property(strong, nonatomic)NSString *type;
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
