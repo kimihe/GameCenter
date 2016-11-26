@@ -108,41 +108,7 @@ CGSize DROP_SIZE = {50, 50};
                 KMDropView *rightView = [self hitCheckWithPoint:CGPointMake(x+squreWidth, y)];
                 if (rightView) {
                     
-                    NSString *tmpType = hitView.type;
-                    hitView.type = rightView.type;
-                    rightView.type = tmpType;
-                    
-                    
-                    CGPoint hitViewCenter = hitView.center;
-                    CGPoint rightViewCenter = rightView.center;
-                    UIColor *hitViewColor = hitView.insideSqureColor;
-                    UIColor *rightViewColor = rightView.insideSqureColor;
-                    
-                    
-                    
-                    
-                    [UIView animateWithDuration:0.5 animations:^{
-                        hitView.alpha = 0;
-                        rightView.alpha = 0;
-                        
-                    } completion:^(BOOL finished) {
-                        UIColor *tmpCoclor = hitView.insideSqureColor;
-                        hitView.insideSqureColor = rightView.insideSqureColor;
-                        rightView.insideSqureColor = tmpCoclor;
-                        
-                        hitView.alpha = 1;
-                        rightView.alpha = 1;
-                        
-                        
-                        hitView.state = KMDropViewStateNormal;
-                        rightView.state = KMDropViewStateNormal;
-                        
-                        NSLog(@"this->right: two cubes' color did change!");
-                        
-                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                            [self removeThreeSameColor];
-                        });
-                    }];
+                    [self locationExchangeView1:hitView withView2:rightView userInfo:@"this->right: two cubes' color did change!"];
                 }
                 
                 break;
@@ -153,22 +119,7 @@ CGSize DROP_SIZE = {50, 50};
                 KMDropView *leftView = [self hitCheckWithPoint:CGPointMake(x-squreWidth, y)];
                 if (leftView) {
                     
-                    NSString *tmpType = hitView.type;
-                    hitView.type = leftView.type;
-                    leftView.type = tmpType;
-                    
-                    UIColor *tmpCoclor = hitView.insideSqureColor;
-                    hitView.insideSqureColor = leftView.insideSqureColor;
-                    leftView.insideSqureColor = tmpCoclor;
-                    
-                    hitView.state = KMDropViewStateNormal;
-                    leftView.state = KMDropViewStateNormal;
-
-                    NSLog(@"this->left: two cubes' color did change!");
-                    
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self removeThreeSameColor];
-                    });
+                    [self locationExchangeView1:hitView withView2:leftView userInfo:@"this->left: two cubes' color did change!"];
                 }
                 
                 break;
@@ -179,22 +130,7 @@ CGSize DROP_SIZE = {50, 50};
                 KMDropView *upView = [self hitCheckWithPoint:CGPointMake(x, y-squreWidth)];
                 if (upView) {
                     
-                    NSString *tmpType = hitView.type;
-                    hitView.type = upView.type;
-                    upView.type = tmpType;
-                    
-                    UIColor *tmpCoclor = hitView.insideSqureColor;
-                    hitView.insideSqureColor = upView.insideSqureColor;
-                    upView.insideSqureColor = tmpCoclor;
-                    
-                    hitView.state = KMDropViewStateNormal;
-                    upView.state = KMDropViewStateNormal;
-                    
-                    NSLog(@"this->up: two cubes' color did change!");
-                    
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self removeThreeSameColor];
-                    });
+                    [self locationExchangeView1:hitView withView2:upView userInfo:@"this->up: two cubes' color did change!"];
                 }
                 
                 break;
@@ -205,22 +141,7 @@ CGSize DROP_SIZE = {50, 50};
                 KMDropView *downView = [self hitCheckWithPoint:CGPointMake(x, y+squreWidth)];
                 if (downView) {
                     
-                    NSString *tmpType = hitView.type;
-                    hitView.type = downView.type;
-                    downView.type = tmpType;
-                    
-                    UIColor *tmpCoclor = hitView.insideSqureColor;
-                    hitView.insideSqureColor = downView.insideSqureColor;
-                    downView.insideSqureColor = tmpCoclor;
-                    
-                    hitView.state = KMDropViewStateNormal;
-                    downView.state = KMDropViewStateNormal;
-                    
-                    NSLog(@"this->down: two cubes' color did change!");
-                    
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self removeThreeSameColor];
-                    });
+                    [self locationExchangeView1:hitView withView2:downView userInfo:@"this->down: two cubes' color did change!"];
                 }
                 
                 break;
@@ -474,6 +395,59 @@ CGSize DROP_SIZE = {50, 50};
     }
 }
 
+- (void)locationExchangeView1:(KMDropView *)view1 withView2:(KMDropView *)view2 userInfo:(id)userInfo
+{
+    NSString *tmpType = view1.type;
+    view1.type = view2.type;
+    view2.type = tmpType;
+
+    
+    
+    
+    
+    view1.alpha = 0;
+    view2.alpha = 0;
+    
+    UIView *A = [UIView new];
+    A.frame = view1.frame;
+    A.backgroundColor = view1.insideSqureColor;
+    [self addSubview:A];
+    
+    UIView *B = [UIView new];
+    B.frame = view2.frame;
+    B.backgroundColor = view2.insideSqureColor;
+    [self addSubview:B];
+    
+    CGPoint centerA = A.center;
+    CGPoint centerB = B.center;
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        B.center = centerA;
+        A.center = centerB;
+        
+    } completion:^(BOOL finished) {
+        UIColor *tmpCoclor = view1.insideSqureColor;
+        view1.insideSqureColor = view2.insideSqureColor;
+        view2.insideSqureColor = tmpCoclor;
+        
+        [A removeFromSuperview];
+        [B removeFromSuperview];
+
+        view1.alpha = 1;
+        view2.alpha = 1;
+        
+        view1.state = KMDropViewStateNormal;
+        view2.state = KMDropViewStateNormal;
+        
+        NSLog(@"%@", userInfo);
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self removeThreeSameColor];
+        });
+    }];
+}
+
 - (void)exchangeObj1:(id)obj1 withObj2:(id)obj2
 {
 //    id tmp = obj1;
@@ -503,12 +477,12 @@ CGSize DROP_SIZE = {50, 50};
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-//    // 检测_touchBeganPoint所在的view最上层subview的class
-//    KMDropView *hitView = [self hitCheckWithPoint:_touchBeganPoint];
-//    // 如果返回不为nil，就说明它是(KMDropView *)
-//    if (hitView) {
-//        hitView.state = KMDropViewStateNormal;
-//    }
+    // 检测_touchBeganPoint所在的view最上层subview的class
+    KMDropView *hitView = [self hitCheckWithPoint:_touchBeganPoint];
+    // 如果返回不为nil，就说明它是(KMDropView *)
+    if (hitView) {
+        hitView.state = KMDropViewStateNormal;
+    }
 }
 
 
