@@ -7,6 +7,7 @@
 //
 
 #import "KMDropView.h"
+#import "KMUIKitMacro.h"
 
 @implementation KMDropView
 {
@@ -25,7 +26,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self initData];
-        [self setupBoundsAndFrame];
     }
     return self;
     
@@ -35,7 +35,10 @@
 {
     _borderColor = [UIColor blackColor];
     _insideSqureColor = [UIColor whiteColor];
+    _pattern = nil;
     _type = @"#$%^&*";
+    
+    [self setupBoundsAndFrame];
 }
 
 - (void)setupBoundsAndFrame
@@ -56,6 +59,63 @@
 - (void)setBorderColor:(UIColor *)borderColor
 {
     _borderColor = borderColor;
+}
+
+- (void)setInsideSqureColor:(UIColor *)insideSqureColor
+{
+    _insideSqureColor = insideSqureColor;
+}
+
+- (void)setPattern:(UIImage *)pattern
+{
+    _pattern = pattern;
+}
+
+- (void)setState:(KMDropViewState)state
+{
+    _state = state;
+    
+    // 重绘前消除一切sublayer
+    if ([self.layer.sublayers count] > 0) {
+        self.layer.sublayers = nil;
+    }
+
+    switch (state) {
+        case KMDropViewStateNormal: {
+            
+            [self setupBorderColor:_borderColor lineWidth:1.0f];
+            [self setupInsideSqureColor:_insideSqureColor lineWidth:1.0f];
+            [self setupPattern:_pattern];
+            break;
+        }
+            
+        case KMDropViewStateHighlight: {
+            
+            [self setupBorderColor:colorFromRGBA(0x89CFF0, 1.0) lineWidth:3.0f];
+            [self setupInsideSqureColor:_insideSqureColor lineWidth:1.0f];
+            [self setupPattern:_pattern];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+- (void)setType:(NSString *)type
+{
+    _type = type;
+}
+
+#pragma mark - Support Methods
+- (void)setupBorderColor:(UIColor *)color lineWidth:(CGFloat)width
+{
+    if ([color isEqual:[UIColor clearColor]]) {
+        return;
+    }
+    if (width <= 0.0) {
+        return;
+    }
     
     //create a path
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
@@ -70,15 +130,20 @@
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezierPath.CGPath;
     shapeLayer.fillColor = [UIColor clearColor].CGColor;
-    shapeLayer.strokeColor = _borderColor.CGColor;
-    shapeLayer.lineWidth = 1.0f;
+    shapeLayer.strokeColor = color.CGColor;
+    shapeLayer.lineWidth = width;
     
     [self.layer addSublayer:shapeLayer];
 }
 
-- (void)setInsideSqureColor:(UIColor *)insideSqureColor
+- (void)setupInsideSqureColor:(UIColor *)color lineWidth:(CGFloat)width
 {
-    _insideSqureColor = insideSqureColor;
+    if ([color isEqual:[UIColor clearColor]]) {
+        return;
+    }
+    if (width <= 0.0) {
+        return;
+    }
     
     CGFloat ratio = 0.8;
     CGFloat margin = _selfFrameSquareWidth*(1-ratio)/2;
@@ -96,22 +161,23 @@
     //draw the path using a CAShapeLayer
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.path = bezierPath.CGPath;
-    shapeLayer.fillColor = _insideSqureColor.CGColor;
-    shapeLayer.strokeColor = _insideSqureColor.CGColor;
-    shapeLayer.lineWidth = 1.0f;
+    shapeLayer.fillColor = color.CGColor;
+    shapeLayer.strokeColor = color.CGColor;
+    shapeLayer.lineWidth = width;
     
     [self.layer addSublayer:shapeLayer];
 }
 
-- (void)setType:(NSString *)type
+- (void)setupPattern:(UIImage *)pattern
 {
-    _type = type;
+    if (!pattern) {
+        return;
+    }
+    
+    self.contentMode = UIViewContentModeScaleAspectFill;
+    self.layer.contents = (__bridge id _Nullable)(pattern.CGImage);
 }
 
-- (void)setPattern:(UIImage *)pattern
-{
-    // add sth later
-}
 
 
 @end
