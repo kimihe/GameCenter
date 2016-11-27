@@ -69,6 +69,11 @@ CGSize DROP_SIZE = {50, 50};
     DROP_SIZE  = CGSizeMake(self.frame.size.width/dropsPerRow, self.frame.size.width/dropsPerRow);
 }
 
+#pragma mark - layoutSubviews
+- (void)layoutSubviews {
+    [self setupBoundsAndFrame];
+}
+
 #pragma mark - Gesture
 - (void)addSwipeGesturer
 {
@@ -408,24 +413,20 @@ CGSize DROP_SIZE = {50, 50};
     view1.alpha = 0;
     view2.alpha = 0;
     
-    UIView *A = [UIView new];
-    A.frame = view1.frame;
-    A.backgroundColor = view1.insideSqureColor;
-    [self addSubview:A];
-    
-    UIView *B = [UIView new];
-    B.frame = view2.frame;
-    B.backgroundColor = view2.insideSqureColor;
+    // 先[self addSubview:B]就能使在动画执行时，A在B的上层，看起来更加舒服
+    KMDropView *B = [KMDropView duplicateFrom:view2];
     [self addSubview:B];
+    
+    KMDropView *A = [KMDropView duplicateFrom:view1];
+    [self addSubview:A];
     
     CGPoint centerA = A.center;
     CGPoint centerB = B.center;
     
-    
     [UIView animateWithDuration:0.5 animations:^{
-        B.center = centerA;
-        A.center = centerB;
         
+        A.center = centerB;
+        B.center = centerA;
     } completion:^(BOOL finished) {
         UIColor *tmpCoclor = view1.insideSqureColor;
         view1.insideSqureColor = view2.insideSqureColor;

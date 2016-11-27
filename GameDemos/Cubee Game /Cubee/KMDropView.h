@@ -32,4 +32,14 @@ typedef NS_ENUM(NSUInteger, KMDropViewState) {
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
+
+/**
+ *  深拷贝一个KMDropView
+ *
+ *  @param originView 源本
+ *
+ *  @return 返回深拷贝的副本
+ */
++ (KMDropView *)duplicateFrom:(KMDropView *)originView;
+
 @end

@@ -21,6 +21,7 @@
     CGFloat _selfFrameSquareWidth;          //!< 如果frame不是正方形，则取短边构造内置正方形
 }
 
+#pragma mark - Init & Setup
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -53,7 +54,10 @@
     _selfFrameSquareWidth = (_selfFrameWidth<=_selfFrameHeight)? _selfFrameWidth : _selfFrameHeight;
 }
 
-
+#pragma mark - layoutSubviews
+- (void)layoutSubviews {
+    [self setupBoundsAndFrame];
+}
 
 #pragma mark - Property Set Methods
 - (void)setBorderColor:(UIColor *)borderColor
@@ -178,6 +182,20 @@
     self.layer.contents = (__bridge id _Nullable)(pattern.CGImage);
 }
 
+#pragma mark - Duplicate (KMDropView *)
++ (KMDropView *)duplicateFrom:(KMDropView *)originView
+{
+    KMDropView *duplicatedView = [[KMDropView alloc] initWithFrame:originView.frame];
+    
+    duplicatedView.borderColor = originView.borderColor;
+    duplicatedView.insideSqureColor = originView.insideSqureColor;
+    duplicatedView.pattern  = originView.pattern;
+    duplicatedView.state = originView.state;
+    
+    duplicatedView.type = originView.type;
+    
+    return duplicatedView;
+}
 
 
 @end
