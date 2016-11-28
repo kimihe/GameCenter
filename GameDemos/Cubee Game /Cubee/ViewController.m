@@ -46,11 +46,11 @@
     UIButton *dropBtn = [[UIButton alloc] initWithFrame:CGRectMake(150, 100, 50, 30)];
     [dropBtn setTitle:@"drop" forState:UIControlStateNormal];
     [dropBtn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_gameView addSubview:dropBtn];
+    [self.view addSubview:dropBtn];
     
     
     _scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(150, 20, 100, 30)];
-    [_gameView addSubview:_scoreLabel];
+    [self.view addSubview:_scoreLabel];
 }
 
 - (void)btnAction:(UIButton *)sender

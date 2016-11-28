@@ -22,6 +22,7 @@
 		BB3635181DE6C7D800A6EA47 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BB3635161DE6C7D800A6EA47 /* README.md */; };
 		BB36351B1DE6D61600A6EA47 /* UIColor+KMColorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BB36351A1DE6D61600A6EA47 /* UIColor+KMColorHelper.m */; };
 		BB4AF8251DE8362200B06CC0 /* KMDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4AF8241DE8362200B06CC0 /* KMDropView.m */; };
+		BBC4B8681DEC477300ACE129 /* KMPanGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC4B8671DEC477300ACE129 /* KMPanGestureRecognizer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		BB36351A1DE6D61600A6EA47 /* UIColor+KMColorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+KMColorHelper.m"; sourceTree = "<group>"; };
 		BB4AF8231DE8362200B06CC0 /* KMDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDropView.h; sourceTree = "<group>"; };
 		BB4AF8241DE8362200B06CC0 /* KMDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDropView.m; sourceTree = "<group>"; };
+		BBC4B8661DEC477300ACE129 /* KMPanGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMPanGestureRecognizer.h; sourceTree = "<group>"; };
+		BBC4B8671DEC477300ACE129 /* KMPanGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMPanGestureRecognizer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,7 @@
 			children = (
 				BB3635121DE6C7D700A6EA47 /* ToolsKit */,
 				BB4AF8221DE835BB00B06CC0 /* PhysicalEngine */,
+				BBC4B8651DEC45F600ACE129 /* Gesture */,
 				BB4AF8211DE8359700B06CC0 /* Views */,
 				BB3634D91DE6BE0D00A6EA47 /* AppDelegate.h */,
 				BB3634DA1DE6BE0D00A6EA47 /* AppDelegate.m */,
@@ -198,6 +202,15 @@
 				BB3635101DE6C11F00A6EA47 /* KMCubeBehavior.m */,
 			);
 			name = PhysicalEngine;
+			sourceTree = "<group>";
+		};
+		BBC4B8651DEC45F600ACE129 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				BBC4B8661DEC477300ACE129 /* KMPanGestureRecognizer.h */,
+				BBC4B8671DEC477300ACE129 /* KMPanGestureRecognizer.m */,
+			);
+			name = Gesture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +351,7 @@
 				BB4AF8251DE8362200B06CC0 /* KMDropView.m in Sources */,
 				BB3634DB1DE6BE0D00A6EA47 /* AppDelegate.m in Sources */,
 				BB36350E1DE6C09400A6EA47 /* KMAnimatorManager.m in Sources */,
+				BBC4B8681DEC477300ACE129 /* KMPanGestureRecognizer.m in Sources */,
 				BB3635181DE6C7D800A6EA47 /* README.md in Sources */,
 				BB3634D81DE6BE0D00A6EA47 /* main.m in Sources */,
 			);
