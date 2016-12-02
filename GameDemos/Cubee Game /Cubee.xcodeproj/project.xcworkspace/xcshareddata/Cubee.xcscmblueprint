@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5068BD32F8C123FA184C56A7090042FC709D1C49",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3B4666FE86FC9B1BE3EC3BD228C620FF1C0E588B" : 0,
+    "5068BD32F8C123FA184C56A7090042FC709D1C49" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2C4039D6-170F-4C11-AE31-27D21F7D31D7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3B4666FE86FC9B1BE3EC3BD228C620FF1C0E588B" : "GameCenter\/GameDemos\/Cubee%20Game%20\/Cubee\/ToolsKit\/",
+    "5068BD32F8C123FA184C56A7090042FC709D1C49" : "GameCenter\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Cubee",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GameDemos\/Cubee Game \/Cubee.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:kimihe\/ToolsKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3B4666FE86FC9B1BE3EC3BD228C620FF1C0E588B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:kimihe\/GameCenter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5068BD32F8C123FA184C56A7090042FC709D1C49"
+    }
+  ]
+}

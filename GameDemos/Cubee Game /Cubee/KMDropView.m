@@ -197,5 +197,19 @@
     return duplicatedView;
 }
 
+#pragma mark - Description
+- (NSString *)description
+{
+    NSString *description = [NSString stringWithFormat:@"<%@: %p> : %@",
+                             [self class],
+                             self,
+                             @{@"borderColor" : (_borderColor) ? _borderColor : @"NULL",
+                               @"insideSqureColor" : (_insideSqureColor) ? _insideSqureColor : @"NULL",
+                               @"pattern" : (_pattern) ? _pattern : @"NULL",
+                               @"state" : ([NSNumber numberWithUnsignedInteger:_state]) ? [NSNumber numberWithUnsignedInteger:_state] : @"NULL" ,
+                               @"type" : (_type)? _type : @"NULL"
+                               }];
+    return description;
+}
 
 @end

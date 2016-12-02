@@ -28,6 +28,7 @@ typedef NS_ENUM(NSUInteger, KMDropViewState) {
  */
 @property(strong, nonatomic)NSString *type;
 
+@property (readonly, copy) NSString *description;
 
 
 - (instancetype)initWithFrame:(CGRect)frame;
