@@ -235,8 +235,8 @@ CGSize DROP_SIZE = {50, 50};
 
 - (void)kickAwayDrops:(NSArray *)drops
 {
-    if ([self.delegate respondsToSelector:@selector(gameViewWillKickAwayCubesWithCount:)]) {
-        [self.delegate gameViewWillKickAwayCubesWithCount:[drops count]];
+    if ([self.delegate respondsToSelector:@selector(gameView:willKickAwayCubesWithCount:)]) {
+        [self.delegate gameView:self willKickAwayCubesWithCount:[drops count]];
     }
     
     [UIView animateWithDuration:0.5 animations:^{
@@ -258,8 +258,8 @@ CGSize DROP_SIZE = {50, 50};
         [_cubeBehavior removeItem:drop];
     }
     
-    if ([self.delegate respondsToSelector:@selector(gameViewDidKickAwayCubesWithCount:)]) {
-        [self.delegate gameViewDidKickAwayCubesWithCount:[drops count]];
+    if ([self.delegate respondsToSelector:@selector(gameView:didKickAwayCubesWithCount:)]) {
+        [self.delegate gameView:self didKickAwayCubesWithCount:[drops count]];
     }
 }
 

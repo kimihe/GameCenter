@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class KMGameView;
 @protocol KMGameViewDelegate <NSObject>
 
 @optional
 
-- (void)gameViewWillKickAwayCubesWithCount:(NSInteger)count;
-- (void)gameViewDidKickAwayCubesWithCount:(NSInteger)count;
+- (void)gameView:(KMGameView *)view willKickAwayCubesWithCount:(NSInteger)count;
+- (void)gameView:(KMGameView *)view didKickAwayCubesWithCount:(NSInteger)count;
 
 @end
 

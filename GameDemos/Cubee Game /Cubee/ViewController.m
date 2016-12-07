@@ -59,7 +59,7 @@
 }
 
 #pragma mark - <KMGameViewDelegate>
-- (void)gameViewDidKickAwayCubesWithCount:(NSInteger)count
+- (void)gameView:(KMGameView *)view didKickAwayCubesWithCount:(NSInteger)count
 {
     NSString *str = [NSString stringWithFormat:@"Score: %ld", (long)count];
     _scoreLabel.text = str;
