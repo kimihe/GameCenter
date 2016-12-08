@@ -108,7 +108,7 @@
 
 - (void)setType:(NSString *)type
 {
-    _type = type;
+    _type = [type copy];
 }
 
 #pragma mark - Support Methods

@@ -25,10 +25,16 @@ typedef NS_ENUM(NSUInteger, KMDropViewState) {
 
 /**
  *  通过字符串标识不类型同的dropView，比如用户可以绘制石头，剪刀，布三种类型的dropView
+ *  注意type的copy语义。
  */
-@property(strong, nonatomic)NSString *type;
+@property(nonatomic, copy)NSString *type;
 
-@property (readonly, copy) NSString *description;
+
+/**
+ 返回 <class: self address> : {borderColor, insideSqureColor, pattern, state, type}
+ 
+ */
+@property (nonatomic, readonly, strong) NSString *description;
 
 
 - (instancetype)initWithFrame:(CGRect)frame;
