@@ -13,7 +13,7 @@ typedef NS_ENUM(NSUInteger, KMDropViewState) {
     KMDropViewStateHighlight = 1<<1
 };
 
-@interface KMDropView : UIView
+@interface KMDropView : UIView <NSCopying>
 
 @property(strong, nonatomic)UIColor *borderColor;       //!< dropView边框的颜色
 
@@ -40,12 +40,21 @@ typedef NS_ENUM(NSUInteger, KMDropViewState) {
 - (instancetype)initWithFrame:(CGRect)frame;
 
 
+
 /**
- *  深拷贝一个KMDropView
+ 浅拷贝
+
+ @param zone 无关紧要
+ @return 浅拷贝的副本
+ */
+- (id)copyWithZone:(nullable NSZone *)zone;
+
+/**
+ *  Deprecated! 浅拷贝一个KMDropView，请直接使用copy，此方法弃用
  *
  *  @param originView 源本
  *
- *  @return 返回深拷贝的副本
+ *  @return 返回浅拷贝的副本
  */
 + (KMDropView *)duplicateFrom:(KMDropView *)originView;
 

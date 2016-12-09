@@ -182,6 +182,21 @@
     self.layer.contents = (__bridge id _Nullable)(pattern.CGImage);
 }
 
+#pragma mark - <NSCopying>
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    KMDropView *copy = [[[self class] alloc] initWithFrame:self.frame];
+    
+    copy.borderColor = _borderColor;
+    copy.insideSqureColor = _insideSqureColor;
+    copy.pattern  = _pattern;
+    copy.state = _state;
+    
+    copy.type = _type;
+    
+    return copy;
+}
+
 #pragma mark - Duplicate (KMDropView *)
 + (KMDropView *)duplicateFrom:(KMDropView *)originView
 {

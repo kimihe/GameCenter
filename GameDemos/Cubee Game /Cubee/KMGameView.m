@@ -396,10 +396,18 @@ CGSize DROP_SIZE = {50, 50};
 
 - (void)locationExchangeView1:(KMDropView *)view1 withView2:(KMDropView *)view2 userInfo:(id)userInfo
 {
-    NSString *tmpType = view1.type;
-    view1.type = view2.type;
-    view2.type = tmpType;
-
+    // 先[self addSubview:B]就能使在动画执行时，A在B的上层，看起来更加舒服
+//    KMDropView *B = [KMDropView duplicateFrom:view2];
+    KMDropView *B = [view2 copy];
+    [self addSubview:B];
+    
+//    KMDropView *A = [KMDropView duplicateFrom:view1];
+    KMDropView *A = [view1 copy];
+    [self addSubview:A];
+    
+    CGPoint centerA = A.center;
+    CGPoint centerB = B.center;
+    
     
     
     
@@ -407,21 +415,16 @@ CGSize DROP_SIZE = {50, 50};
     view1.alpha = 0;
     view2.alpha = 0;
     
-    // 先[self addSubview:B]就能使在动画执行时，A在B的上层，看起来更加舒服
-    KMDropView *B = [KMDropView duplicateFrom:view2];
-    [self addSubview:B];
-    
-    KMDropView *A = [KMDropView duplicateFrom:view1];
-    [self addSubview:A];
-    
-    CGPoint centerA = A.center;
-    CGPoint centerB = B.center;
-    
     [UIView animateWithDuration:0.5 animations:^{
         
         A.center = centerB;
         B.center = centerA;
     } completion:^(BOOL finished) {
+        
+        NSString *tmpType = view1.type;
+        view1.type = view2.type;
+        view2.type = tmpType;
+        
         UIColor *tmpCoclor = view1.insideSqureColor;
         view1.insideSqureColor = view2.insideSqureColor;
         view2.insideSqureColor = tmpCoclor;
