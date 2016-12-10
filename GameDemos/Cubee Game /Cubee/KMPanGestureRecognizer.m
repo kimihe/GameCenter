@@ -6,12 +6,12 @@
 //  Copyright © 2016年 周祺华. All rights reserved.
 //
 
-#define kGradientThreshold 0.5
-
 #import "KMPanGestureRecognizer.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
 
 #import "KMMathHelper.h"
+
+static const double kGradientThreshold = 0.5;
 
 @implementation KMPanGestureRecognizer
 
