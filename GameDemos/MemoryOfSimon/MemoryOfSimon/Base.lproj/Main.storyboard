@@ -22,28 +22,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Follw sequence and touch squares in correct order." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1C-NK-8yO">
+                                <rect key="frame" x="12" y="59" width="351" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3J-Kw-G8e">
+                                <rect key="frame" x="188" y="107" width="0.0" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="t6Z-T2-07U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fab-rK-8p5">
                                 <rect key="frame" x="29" y="177" width="317" height="313"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KS-if-ax7">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KS-if-ax7">
                                         <rect key="frame" x="169" y="165" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lCN-gA-CW3"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpJ-tY-ahL">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpJ-tY-ahL">
                                         <rect key="frame" x="20" y="165" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ulF-Ej-8b8"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auO-OI-Xdm">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auO-OI-Xdm">
                                         <rect key="frame" x="169" y="20" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jhm-w8-zzV"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETm-EZ-ecF">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETm-EZ-ecF">
                                         <rect key="frame" x="20" y="20" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="buttonTouchedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3dJ-YL-bAu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,10 +82,21 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="X1C-NK-8yO" firstAttribute="bottom" secondItem="I3J-Kw-G8e" secondAttribute="top" constant="-30" id="0KI-f7-eCU"/>
                             <constraint firstItem="Fab-rK-8p5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1tx-2G-uiR"/>
+                            <constraint firstItem="I3J-Kw-G8e" firstAttribute="bottom" secondItem="Fab-rK-8p5" secondAttribute="top" constant="-30" id="OTe-4H-aNE"/>
+                            <constraint firstItem="I3J-Kw-G8e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vm4-Xa-1Fy"/>
+                            <constraint firstItem="X1C-NK-8yO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="du7-4l-5RX"/>
                             <constraint firstItem="Fab-rK-8p5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kE6-3e-6J9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueButton" destination="YpJ-tY-ahL" id="v5k-PP-uuc"/>
+                        <outlet property="greenButton" destination="auO-OI-Xdm" id="MKz-HC-dKD"/>
+                        <outlet property="redButton" destination="ETm-EZ-ecF" id="qf5-aq-6uD"/>
+                        <outlet property="roundCount" destination="I3J-Kw-G8e" id="7fq-Rw-pvt"/>
+                        <outlet property="yellowButton" destination="9KS-if-ax7" id="Suk-qh-fLj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -27,11 +27,12 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var roundCount: UILabel!
     
     // 与模型相关的对象和变量
-    let winningNumber : Int = 25
+    let winningNumber : Int = 3
     var currentPlayer : WhoseTurn = .Computer
-    var inputs = [ButtonColor]()
+    var inputs = [ButtonColor]() // 存储sequence数组
     var indexOfNextButtonToTouch: Int = 0
     var hightSquareTime = 0.5
     
@@ -65,6 +66,8 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     }
     
     func playSequence(index: Int, highlightTime: Double) {
+        roundCount.text = "Round:" + inputs.count.description
+        
         currentPlayer = .Computer
         
         if index == inputs.count {
@@ -78,7 +81,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         
         UIView.animate(withDuration: highlightTime,
                        delay: 0.0,
-                       options: UIViewAnimationOptions.curveLinear.intersection(.allowUserInteraction),
+                       options: UIViewAnimationOptions.curveLinear.intersection(.allowUserInteraction).intersection(.beginFromCurrentState),
                        animations: {
             button.backgroundColor = highlightColor
         },
@@ -100,7 +103,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             
             if colorTouched == inputs[indexOfNextButtonToTouch] {
                 // 玩家触摸了正确的按钮
-                indexOfNextButtonToTouch++
+                indexOfNextButtonToTouch += 1
                 
                 // 判断这一轮是否还有其他按钮要触摸
                 if indexOfNextButtonToTouch == inputs.count {
@@ -124,7 +127,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
     }
     
     func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
-        startGame()
+        startNewGame()
     }
     
     func playerWins() {
@@ -144,7 +147,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         return result!
     }
     
-    func startNewGame() -> void {
+    func startNewGame() {
         // 生成随机的输入数组
         inputs = [ButtonColor]()
         advanceGame()
@@ -160,8 +163,11 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             // 亮起一个按钮或等待玩家开始触摸按钮
             inputs += [randomButton()]
             
-            // play the button sequence
-            playSequence(index: 0, highlightTime: hightSquareTime)
+            // play the button sequence and delay 1 second
+            let delay = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: delay, execute: { 
+                self.playSequence(index: 0, highlightTime: self.hightSquareTime)
+            })
         }
         
         return result
