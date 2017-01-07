@@ -280,6 +280,7 @@
 				TargetAttributes = {
 					BB3634D21DE6BE0D00A6EA47 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 56TLPT28UB;
 					};
 					BB3634EB1DE6BE0D00A6EA47 = {
 						CreatedOnToolsVersion = 7.3;
@@ -496,9 +497,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56TLPT28UB;
 				INFOPLIST_FILE = Cubee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.Cubee;
+				PRODUCT_BUNDLE_IDENTIFIER = Kimi.Cubee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -507,9 +509,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 56TLPT28UB;
 				INFOPLIST_FILE = Cubee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = KimiKimi.Cubee;
+				PRODUCT_BUNDLE_IDENTIFIER = Kimi.Cubee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

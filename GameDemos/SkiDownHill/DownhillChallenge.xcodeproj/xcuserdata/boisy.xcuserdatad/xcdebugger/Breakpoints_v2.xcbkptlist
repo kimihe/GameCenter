@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dhc2/GameScene.swift"
+            timestampString = "464149577.670649"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "getScores()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/GameScene.swift"
+            timestampString = "469488758.323744"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "setPlayer()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Source/GameScene.swift"
+            timestampString = "469488804.296597"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "GameScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownhillChallenge.GameScene.player.getter : __ObjC.SKSpriteNode"
+                  moduleName = "DownhillChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boisy/Documents/peachpit/sfb2_code/Chapter%2011/DownhillChallenge/Source/GameScene.swift"
+                  timestampString = "469488842.078098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownhillChallenge.GameScene.init (DownhillChallenge.GameScene.Type)(size : __C.CGSize) -&gt; DownhillChallenge.GameScene"
+                  moduleName = "DownhillChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boisy/Documents/peachpit/sfb2_code/Chapter%2011/DownhillChallenge/Source/GameScene.swift"
+                  timestampString = "469488842.078244"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "609">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DownhillChallenge.GameScene.init (DownhillChallenge.GameScene.Type)(coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DownhillChallenge.GameScene&gt;"
+                  moduleName = "DownhillChallenge"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boisy/Documents/peachpit/sfb2_code/Chapter%2011/DownhillChallenge/Source/GameScene.swift"
+                  timestampString = "469488842.078461"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "588">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
