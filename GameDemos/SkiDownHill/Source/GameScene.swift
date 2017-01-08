@@ -13,6 +13,12 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    let lv1: Int = 3
+    let lv2: Int = 5
+    let lv3: Int = 7
+    let lv4: Int = 11
+    let lv5: Int = 13
+    
     var backgroundMusic = AVAudioPlayer()
     var coinCounter : Int = 0
     var playerSpeed : CGFloat = 240
@@ -359,29 +365,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /* Called before each frame is rendered */
     override func update(_ currentTime: TimeInterval) {
         switch coinCounter {
-        case 15:
+        case lv1:
             if upSpawn == false {
                 gameLogic.treeRespawn = 0.3
                 upSpawn = true
             }
-        case 25:
+        case lv2:
             if upSpawn == false {
                 gameLogic.treeRespawn = 0.22
                 upSpawn = true
             }
-        case 50:
+        case lv3:
             if upSpawn == false {
                 playerSpeed += 5
                 gameLogic.treeRespawn  = 0.18
                 upSpawn = true
             }
-        case 100:
+        case lv4:
             if upSpawn == false {
                 gameLogic.snowballRespawn = 10
                 gameLogic.treeRespawn  = 0.15
                 upSpawn = true
             }
-        case 200:
+        case lv5:
             if upSpawn == false {
                 gameLogic.truckRespawn = 13
                 upSpawn = true
@@ -393,28 +399,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didEvaluateActions() {
         switch coinCounter {
-        case 15:
+        case lv1:
             if actionCounter == false {
                 //gameLogic.treeRespawn = 0.3
                 runActions(runTree: true, runSnowball: true, runCoin: false, runTruck: false)
                 actionCounter = true
             }
-        case 25:
+        case lv2:
             if actionCounter == false {
                 runActions(runTree: true, runSnowball: false, runCoin: true, runTruck: false)
                 actionCounter = true
             }
-        case 50:
+        case lv3:
             if actionCounter == false {
                 runActions(runTree: true, runSnowball: false, runCoin: false, runTruck: true)
                 actionCounter = true
             }
-        case 100:
+        case lv4:
             if actionCounter == false {
                 runActions(runTree: true, runSnowball: true, runCoin: false, runTruck: false)
                 actionCounter = true
             }
-        case 200:
+        case lv5:
             if actionCounter == false {
                 runActions(runTree: false, runSnowball: false, runCoin: false, runTruck: true)
                 actionCounter = true
